@@ -3,6 +3,7 @@ package com.ajh.TumblrShowcase;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,6 +29,10 @@ public class MenuActivity extends Activity {
         contentFrame = (FrameLayout) findViewById(R.id.content_holder);
         menuButton = (Button) findViewById(R.id.menu_button);
         menuButton.setOnClickListener(menuButtonOpenClickListener);
+        Typeface fontAwesome = Typeface.createFromAsset(getAssets(), "fontawesome.ttf");
+        menuButton.setTypeface(fontAwesome);
+        menuButton.setText("\uf0c9");
+
         menuBarTitle = (TextView) findViewById(R.id.menu_title);
         titleBar = (LinearLayout) findViewById(R.id.title_bar);
         titleBar.setOnTouchListener(new TitleBarDragListener());
@@ -92,18 +97,20 @@ public class MenuActivity extends Activity {
             switch(event.getAction())
             {
                 case MotionEvent.ACTION_DOWN:
+                {
                     initialTouchX = event.getRawX();
                     int[] location = new int[2];
                     view.getLocationInWindow(location);
                     initialViewX = location[0];
                     break;
+                }
                 case MotionEvent.ACTION_MOVE:
                 {
                     float deltaX = event.getRawX() - initialTouchX;
-//                    float offsetX = initialViewX + deltaX;
-//                    offsetX = offsetX < 0 ? 0 : offsetX;
-//                    offsetX = Math.min(offsetX, menuWidth);
-                    contentLayout.setTranslationX(initialViewX + deltaX);
+                    int[] location = new int[2];
+                    view.getLocationInWindow(location);
+                    if(initialViewX + deltaX >= 0)
+                        contentLayout.setTranslationX(initialViewX + deltaX);
                     break;
                 }
                 case MotionEvent.ACTION_UP:

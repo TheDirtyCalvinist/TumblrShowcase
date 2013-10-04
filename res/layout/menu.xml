@@ -17,14 +17,18 @@
         >
         <LinearLayout android:id="@+id/title_bar"
             android:layout_width="fill_parent"
-            android:layout_height="44dp"
+            android:layout_height="@dimen/menu_bar_height"
             android:orientation="horizontal"
             android:background="@drawable/menu_bar_background"
+            android:gravity="center_vertical"
             >
             <Button android:id="@+id/menu_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Menu"
+                android:layout_width="@dimen/menu_bar_height"
+                android:layout_height="@dimen/menu_bar_height"
+                android:padding="5dp"
+                android:background="@drawable/menu_button_background"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/menu_button_text_size"
                 />
             <TextView android:id="@+id/menu_title"
                 android:layout_width="fill_parent"

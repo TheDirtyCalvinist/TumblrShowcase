@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="menu_text">#ff50708C</color>
+    <color name="menu_background_highlighted">#ff01034D</color>
+    <color name="menu_background">#ff01294D</color>
+    <color name="menu_bar_background">#ff50708C</color>
+    <color name="menu_bar_background_bottom">#ff709DC4</color>
+</resources>
